@@ -203,13 +203,41 @@ export const PRODUCT_CATEGORIES = [
   { value: "electronics", label: "Electronics" },
   { value: "furniture", label: "Furniture" },
   { value: "appliances", label: "Appliances" },
-  { value: "books", label: "Books" },
-  { value: "clothing", label: "Clothing" },
-  { value: "accessories", label: "Accessories" },
+  { value: "books", label: "Books & Magazines" },
+  { value: "clothing", label: "Clothing & Fashion" },
+  { value: "accessories", label: "Accessories & Jewelry" },
   { value: "decor", label: "Home Decor" },
-  { value: "garden", label: "Garden" },
-  { value: "sports", label: "Sports" },
-  { value: "toys", label: "Toys" }
+  { value: "garden", label: "Garden & Outdoor" },
+  { value: "sports", label: "Sports & Fitness" },
+  { value: "toys", label: "Toys & Games" },
+  { value: "automotive", label: "Automotive" },
+  { value: "tools", label: "Tools & Hardware" },
+  { value: "musical", label: "Musical Instruments" },
+  { value: "art", label: "Art & Collectibles" },
+  { value: "kitchenware", label: "Kitchen & Dining" },
+  { value: "office", label: "Office Supplies" },
+  { value: "baby", label: "Baby & Kids" },
+  { value: "health", label: "Health & Beauty" },
+  { value: "pet", label: "Pet Supplies" },
+  { value: "crafts", label: "Crafts & Hobbies" }
+];
+
+export const SCRAP_CATEGORIES = [
+  { value: "electronics", label: "Electronics Scrap", icon: "📱", basePrice: "450.00" },
+  { value: "metals", label: "Metal Scrap", icon: "🔧", basePrice: "280.00" },
+  { value: "plastic", label: "Plastic Waste", icon: "♻️", basePrice: "15.00" },
+  { value: "paper", label: "Paper & Cardboard", icon: "📰", basePrice: "12.00" },
+  { value: "copper", label: "Copper Wires", icon: "🔌", basePrice: "620.00" },
+  { value: "aluminum", label: "Aluminum Cans", icon: "🥤", basePrice: "180.00" },
+  { value: "steel", label: "Steel & Iron", icon: "⚙️", basePrice: "45.00" },
+  { value: "brass", label: "Brass Materials", icon: "🎺", basePrice: "350.00" },
+  { value: "batteries", label: "Old Batteries", icon: "🔋", basePrice: "85.00" },
+  { value: "glass", label: "Glass Bottles", icon: "🍾", basePrice: "8.00" },
+  { value: "textiles", label: "Textile Waste", icon: "👕", basePrice: "25.00" },
+  { value: "wood", label: "Wood Scrap", icon: "🪵", basePrice: "18.00" },
+  { value: "rubber", label: "Rubber Materials", icon: "🛞", basePrice: "32.00" },
+  { value: "cables", label: "Electric Cables", icon: "⚡", basePrice: "125.00" },
+  { value: "appliances", label: "Old Appliances", icon: "📺", basePrice: "95.00" }
 ];
 
 export const CONDITION_OPTIONS = [

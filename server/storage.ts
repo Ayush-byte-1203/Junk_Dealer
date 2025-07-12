@@ -72,13 +72,21 @@ export class MemStorage implements IStorage {
   private initializeData() {
     // Initialize categories
     const initialCategories = [
-      { id: 1, name: "Electronics", description: "Phones, laptops, circuit boards", icon: "fas fa-microchip", parentId: null, currentPrice: "450", priceUnit: "kg", isActive: true },
-      { id: 2, name: "Metals", description: "Copper, aluminum, steel", icon: "fas fa-coins", parentId: null, currentPrice: "280", priceUnit: "kg", isActive: true },
-      { id: 3, name: "Plastic", description: "Bottles, containers, packaging", icon: "fas fa-leaf", parentId: null, currentPrice: "15", priceUnit: "kg", isActive: true },
-      { id: 4, name: "Paper", description: "Newspapers, books, cardboard", icon: "fas fa-newspaper", parentId: null, currentPrice: "12", priceUnit: "kg", isActive: true },
-      { id: 5, name: "Copper", description: "Pure copper materials", icon: "fas fa-coins", parentId: 2, currentPrice: "620", priceUnit: "kg", isActive: true },
-      { id: 6, name: "Aluminum", description: "Aluminum cans and sheets", icon: "fas fa-coins", parentId: 2, currentPrice: "180", priceUnit: "kg", isActive: true },
-      { id: 7, name: "Steel", description: "Iron and steel materials", icon: "fas fa-coins", parentId: 2, currentPrice: "45", priceUnit: "kg", isActive: true },
+      { id: 1, name: "Electronics", description: "Phones, laptops, circuit boards", icon: "fas fa-microchip", parentId: null, currentPrice: "450.00", priceUnit: "kg", isActive: true },
+      { id: 2, name: "Metals", description: "Copper, aluminum, steel", icon: "fas fa-coins", parentId: null, currentPrice: "280.00", priceUnit: "kg", isActive: true },
+      { id: 3, name: "Plastic", description: "Bottles, containers, packaging", icon: "fas fa-leaf", parentId: null, currentPrice: "15.00", priceUnit: "kg", isActive: true },
+      { id: 4, name: "Paper", description: "Newspapers, books, cardboard", icon: "fas fa-newspaper", parentId: null, currentPrice: "12.00", priceUnit: "kg", isActive: true },
+      { id: 5, name: "Copper", description: "Pure copper materials", icon: "fas fa-coins", parentId: 2, currentPrice: "620.00", priceUnit: "kg", isActive: true },
+      { id: 6, name: "Aluminum", description: "Aluminum cans and sheets", icon: "fas fa-coins", parentId: 2, currentPrice: "180.00", priceUnit: "kg", isActive: true },
+      { id: 7, name: "Steel", description: "Iron and steel materials", icon: "fas fa-coins", parentId: 2, currentPrice: "45.00", priceUnit: "kg", isActive: true },
+      { id: 8, name: "Brass", description: "Brass materials and fittings", icon: "fas fa-coins", parentId: 2, currentPrice: "350.00", priceUnit: "kg", isActive: true },
+      { id: 9, name: "Batteries", description: "Old batteries and cells", icon: "fas fa-battery-empty", parentId: 1, currentPrice: "85.00", priceUnit: "kg", isActive: true },
+      { id: 10, name: "Glass", description: "Glass bottles and containers", icon: "fas fa-wine-bottle", parentId: null, currentPrice: "8.00", priceUnit: "kg", isActive: true },
+      { id: 11, name: "Textiles", description: "Fabric and clothing waste", icon: "fas fa-tshirt", parentId: null, currentPrice: "25.00", priceUnit: "kg", isActive: true },
+      { id: 12, name: "Wood", description: "Wood scraps and furniture", icon: "fas fa-tree", parentId: null, currentPrice: "18.00", priceUnit: "kg", isActive: true },
+      { id: 13, name: "Rubber", description: "Rubber materials and tires", icon: "fas fa-circle", parentId: null, currentPrice: "32.00", priceUnit: "kg", isActive: true },
+      { id: 14, name: "Cables", description: "Electric cables and wires", icon: "fas fa-plug", parentId: 1, currentPrice: "125.00", priceUnit: "kg", isActive: true },
+      { id: 15, name: "Appliances", description: "Old appliances and machines", icon: "fas fa-tv", parentId: 1, currentPrice: "95.00", priceUnit: "kg", isActive: true },
     ];
 
     initialCategories.forEach(cat => {
@@ -165,7 +173,7 @@ export class MemStorage implements IStorage {
     const category = this.categories.get(id);
     if (!category) return undefined;
     
-    const updatedCategory = { ...category, currentPrice: price.toString() };
+    const updatedCategory = { ...category, currentPrice: price.toFixed(2) };
     this.categories.set(id, updatedCategory);
     return updatedCategory;
   }
