@@ -21,10 +21,11 @@ Preferred communication style: Simple, everyday language.
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js
 - **Language**: TypeScript with ES modules
-- **Database**: PostgreSQL with Drizzle ORM
-- **Database Provider**: Neon Database (serverless PostgreSQL)
+- **Database**: PostgreSQL with Drizzle ORM (DatabaseStorage implementation)
+- **Database Provider**: PostgreSQL with proper environment variables
 - **API Design**: RESTful endpoints with JSON responses
 - **Session Management**: PostgreSQL-based session storage
+- **Data Persistence**: Full database integration with seeded initial data
 
 ### Key Components
 

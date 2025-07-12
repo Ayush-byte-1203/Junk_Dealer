@@ -1,4 +1,5 @@
 import { pgTable, text, serial, integer, boolean, decimal, timestamp } from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -135,6 +136,68 @@ export const loginSchema = z.object({
 });
 
 // Types
+// Relations
+export const userRelations = relations(users, ({ many }) => ({
+  bookings: many(bookings),
+  products: many(products),
+  cartItems: many(cartItems),
+  notifications: many(notifications),
+}));
+
+export const categoryRelations = relations(categories, ({ one, many }) => ({
+  parent: one(categories, {
+    fields: [categories.parentId],
+    references: [categories.id],
+  }),
+  children: many(categories),
+  bookings: many(bookings),
+  priceHistory: many(priceHistory),
+}));
+
+export const bookingRelations = relations(bookings, ({ one }) => ({
+  user: one(users, {
+    fields: [bookings.userId],
+    references: [users.id],
+  }),
+  category: one(categories, {
+    fields: [bookings.categoryId],
+    references: [categories.id],
+  }),
+}));
+
+export const productRelations = relations(products, ({ one, many }) => ({
+  seller: one(users, {
+    fields: [products.sellerId],
+    references: [users.id],
+  }),
+  cartItems: many(cartItems),
+}));
+
+export const cartItemRelations = relations(cartItems, ({ one }) => ({
+  user: one(users, {
+    fields: [cartItems.userId],
+    references: [users.id],
+  }),
+  product: one(products, {
+    fields: [cartItems.productId],
+    references: [products.id],
+  }),
+}));
+
+export const notificationRelations = relations(notifications, ({ one }) => ({
+  user: one(users, {
+    fields: [notifications.userId],
+    references: [users.id],
+  }),
+}));
+
+export const priceHistoryRelations = relations(priceHistory, ({ one }) => ({
+  category: one(categories, {
+    fields: [priceHistory.categoryId],
+    references: [categories.id],
+  }),
+}));
+
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type Category = typeof categories.$inferSelect;
